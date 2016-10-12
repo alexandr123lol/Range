@@ -12,7 +12,7 @@ public class Range {
         this.to = to;
     }
 
-    public double getLenght() {
+    public double getLength() {
         return to - from;
     }
 
