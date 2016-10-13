@@ -34,6 +34,17 @@ public class Range {
     }
 
 
+    public  Object intersection( double begin ,double end) {
+
+        from = (begin > from) ? begin : from;
+        to = (end < to) ? end : to;
+
+        if (from > to) {
+            return null;
+        } else {
+            return "[" + from + ".." + to + "]";
+        }
+    }
 }
 
 
