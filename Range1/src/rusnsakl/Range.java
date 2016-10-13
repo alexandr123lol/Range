@@ -1,9 +1,10 @@
-package Range;
+package rusnsakl;
 
 /**
- * Created by Alexander on 12.10.2016.
+ * Created by Alexander on 13.10.2016.
  */
 public class Range {
+
     private double from;
     private double to;
 
@@ -17,9 +18,7 @@ public class Range {
     }
 
     public boolean inInside(double number) {
-        if (from <= number || number <= to) {
-            return true;
-        }
-        return false;
+        return from <= number && number <= to;
+
     }
 }
