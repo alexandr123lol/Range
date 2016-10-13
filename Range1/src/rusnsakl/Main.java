@@ -5,9 +5,9 @@ package rusnsakl;
  */
 public class Main {
     public static void main(String[] args) {
-        Range range = new Range(2.3, 4.2);
-        double number = 0;
-        System.out.printf("Числовой диапазон длиной = %.2f  число %.2f принадлежит  ли диапазону: %s", range.getLength(), number, range.isInside(number));
-        
+        Range range = new Range(2.3, 4.2,4.3,8.2);
+        double number = 10;
+        System.out.printf("Числовой диапазон длиной = %.2f  число %.2f принадлежит  ли диапазону: %s %n", range.getLength(), number, range.isInside(number));
+        System.out.println(range.intersectionRange());
     }
 }
