@@ -34,15 +34,16 @@ public class Range {
     }
 
 
-    public  Range intersection(Range range) {
+    public Range intersection(Range range) {
 
-        range.from = ( range.from > from) ? range.from : from;
-        range.to = (range.to < to) ? range.to : to;
 
-        if (range.from > range.to) {
+        double begin = (range.from > from) ? range.from : from;
+        double end = (range.to < to) ? range.to : to;
+
+        if (begin > end) {
             return null;
-        } 
-            return range;
+        }
+        return new Range(begin, end);
 
     }
 }
