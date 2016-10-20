@@ -49,23 +49,23 @@ public class Range {
 
     }
 
-    public Range[] association(Range range) {
-        Range[] array = new Range[2];
+    public Range[] union(Range range) {
+
 
         if (range.isInside(range.from) && range.isInside(range.to)) {
-            array[0] = new Range(from, to);
-            return array;
+            return new Range[]{new Range(from, to)};
+
         } else if (range.isInside((range.from))) {
-            array[0] = new Range(from, range.to);
-            return array;
+            return new Range[]{new Range(from, range.to)};
+
         } else if (range.isInside(range.to)) {
-            array[0] = new Range(range.from, to);
-            return array;
+            return new Range[]{new Range(range.from, to)};
+
         } else if ((range.from <= from && from <= range.to) && (range.from <= to && to <= range.to)) {
-            array[0] = new Range(range.from, range.to);
-            return array;
+            return new Range[]{new Range(range.from, range.to)};
 
         } else {
+            Range[] array = new Range[2];
             if (range.from > from) {
                 array[0] = new Range(from, to);
                 array[1] = new Range(range.from, range.to);
