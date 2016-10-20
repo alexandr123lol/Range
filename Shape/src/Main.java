@@ -22,6 +22,7 @@ public class Main {
                  index = i+1;
             }
         }
+        
         System.out.println("Максимальная площадь равна " +maxArea + " У объекта поданного" + index);
     }
 }
