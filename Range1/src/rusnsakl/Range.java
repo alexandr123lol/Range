@@ -1,7 +1,6 @@
 package rusnsakl;
 
 
-
 /**
  * Created by Alexander on 13.10.2016.
  */
@@ -65,35 +64,34 @@ public class Range {
             return new Range[]{new Range(range.from, range.to)};
 
         } else {
-            Range[] array = new Range[2];
+
             if (range.from > from) {
-                array[0] = new Range(from, to);
-                array[1] = new Range(range.from, range.to);
-                return array;
+                return new Range[]{new Range(from, to), new Range(range.from, range.to)};
             } else {
-                array[0] = new Range(range.from, range.to);
-                array[1] = new Range(from, to);
-                return array;
+                return new Range[]{new Range(range.from, range.to), new Range(from, to)};
             }
         }
 
     }
 
     public Range[] difference(Range range) {
-        Range[] array = new Range[2];
+
         if (!range.isInside(range.from) && !range.isInside(range.to)) {
-            array[0] = new Range(from, to);
-            return array;
+            return new Range[]{new Range(from, to), new Range(range.from, range.to)};
+
+        } else if (from == range.from && to == range.to) {
+            return null;
+
         } else if (range.isInside(range.from)) {
-            array[0] = new Range(from, range.from);
-            return array;
+            return new Range[]{new Range(from, range.from)};
+
         } else if (range.isInside(range.to)) {
-            array[0] = new Range(range.to, to);
-            return array;
-        } else
-            array[0] = new Range(from, range.from);
-        array[1] = new Range(range.to, to);
-        return array;
+            return new Range[]{new Range(range.to, to)};
+
+        } else {
+            return new Range[]{new Range(from, range.from), new Range(range.to, to)};
+
+        }
     }
 }
 
