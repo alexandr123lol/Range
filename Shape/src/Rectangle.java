@@ -22,11 +22,11 @@ public class Rectangle implements Shape {
 
     @Override
     public double getArea() {
-        return wigth*height;
+        return wigth * height;
     }
 
     @Override
     public double getPerimeter() {
-        return (wigth+height)*2;
+        return (wigth + height) * 2;
     }
 }
