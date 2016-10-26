@@ -2,17 +2,17 @@
  * Created by Alexander on 20.10.2016.
  */
 public class Rectangle implements Shape {
-    private double wigth;
+    private double wight;
     private double height;
 
-    public Rectangle(double wigth, double height) {
-        this.wigth = wigth;
+    public Rectangle(double wight, double height) {
+        this.wight = wight;
         this.height = height;
     }
 
     @Override
     public double getWidth() {
-        return wigth;
+        return wight;
     }
 
     @Override
@@ -22,11 +22,11 @@ public class Rectangle implements Shape {
 
     @Override
     public double getArea() {
-        return wigth * height;
+        return wight * height;
     }
 
     @Override
     public double getPerimeter() {
-        return (wigth + height) * 2;
+        return (wight + height) * 2;
     }
 }

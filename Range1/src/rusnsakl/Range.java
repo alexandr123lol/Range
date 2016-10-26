@@ -51,16 +51,16 @@ public class Range {
     public Range[] union(Range range) {
 
 
-        if (range.isInside(range.from) && range.isInside(range.to)) {
-            return new Range[]{new Range(from, to)};
+        if (range.isInside(from) && range.isInside(to)) {
+            return new Range[]{new Range(range.from, range.to)};
 
-        } else if (range.isInside((range.from))) {
-            return new Range[]{new Range(from, range.to)};
-
-        } else if (range.isInside(range.to)) {
+        } else if (range.isInside((from))) {
             return new Range[]{new Range(range.from, to)};
 
-        } else if ((range.from <= from && from <= range.to) && (range.from <= to && to <= range.to)) {
+        } else if (range.isInside(to)) {
+            return new Range[]{new Range(from, range.to)};
+
+        } else if (!((range.from <= from && from <= range.to) && (range.from <= to && to <= range.to))) {
             return new Range[]{new Range(range.from, range.to)};
 
         } else {
@@ -76,17 +76,21 @@ public class Range {
 
     public Range[] difference(Range range) {
 
-        if (!range.isInside(range.from) && !range.isInside(range.to)) {
-            return new Range[]{new Range(from, to), new Range(range.from, range.to)};
+        if (!range.isInside(from) && !range.isInside(to)) {
+            if (from < range.from) {
+                return new Range[]{new Range(from, to), new Range(range.from, range.to)};
+            } else {
+                return new Range[]{new Range(range.from, range.to), new Range(from, to)};
+            }
 
-        } else if (from == range.from && to == range.to) {
-            return null;
+        } else if (range.from < from && to < range.to) {
+            return new Range[0];
 
-        } else if (range.isInside(range.from)) {
-            return new Range[]{new Range(from, range.from)};
+        } else if (range.isInside(from)) {
+            return new Range[]{new Range(range.from, from)};
 
-        } else if (range.isInside(range.to)) {
-            return new Range[]{new Range(range.to, to)};
+        } else if (range.isInside(to)) {
+            return new Range[]{new Range(to, range.to)};
 
         } else {
             return new Range[]{new Range(from, range.from), new Range(range.to, to)};
