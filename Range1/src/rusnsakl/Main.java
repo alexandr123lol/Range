@@ -1,6 +1,8 @@
 package rusnsakl;
 
 
+import java.util.Arrays;
+
 /**
  * Created by Alexander on 13.10.2016.
  */
@@ -10,7 +12,7 @@ public class Main {
         Range range1 = new Range(0, 9.0);
         double number = 10;
         System.out.printf("Числовой диапазон длиной = %.2f  число %.2f принадлежит  ли диапазону: %s %n", range.getLength(), number, range.isInside(number));
-
+        System.out.println(Arrays.toString(range.union(range1)));
 
     }
 }
