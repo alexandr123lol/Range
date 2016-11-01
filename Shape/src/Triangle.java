@@ -65,4 +65,9 @@ public class Triangle implements Shape {
     public double getPerimeter() {
         return length(x1, y1, x2, y2) + length(x2, y2, x3, y3) + length(x3, y3, x1, y1);
     }
+
+    @Override
+    public void print() {
+        System.out.println("Треугольник со сторонами "+getWidth()+" "+getHeight() + " площадью и переиметром "+getArea()+" "+getPerimeter());
+    }
 }

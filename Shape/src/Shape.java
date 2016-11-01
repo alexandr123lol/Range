@@ -11,4 +11,6 @@ public interface Shape {
 
     double getPerimeter();
 
+    void print();
+
 }

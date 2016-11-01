@@ -29,4 +29,8 @@ public class Rectangle implements Shape {
     public double getPerimeter() {
         return (wight + height) * 2;
     }
+
+    public void print() {
+        System.out.println("Четырехугольник со сторонами "+getWidth()+" "+getHeight() + " площадью и переиметром "+getArea()+" "+getPerimeter());
+    }
 }

@@ -28,4 +28,9 @@ public class Square implements Shape {
     public double getPerimeter() {
         return side * 4;
     }
+
+    @Override
+    public void print() {
+        System.out.println("Квадрат  со сторонами "+getWidth()+" "+getHeight() + " площадью и переиметром "+getArea()+" "+getPerimeter());
+    }
 }

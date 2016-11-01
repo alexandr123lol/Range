@@ -28,4 +28,9 @@ public class Circle implements Shape {
     public double getPerimeter() {
         return 2 * Math.PI * radius;
     }
+
+    @Override
+    public void print() {
+        System.out.println("Окружность  со сторонами "+getWidth()+" "+getHeight() + " площадью и переиметром "+getArea()+" "+getPerimeter());
+    }
 }
