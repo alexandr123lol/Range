@@ -1,7 +1,7 @@
 /**
  * Created by Alexander on 20.10.2016.
  */
-public interface Shape {
+public interface Shape  {
 
     double getWidth();
 
@@ -10,7 +10,5 @@ public interface Shape {
     double getArea();
 
     double getPerimeter();
-
-    void print();
 
 }

@@ -4,12 +4,12 @@ import com.sun.javafx.geom.*;
  * Created by Alexander on 20.10.2016.
  */
 public class Triangle implements Shape {
-   private double x1;
-   private double x2;
-   private double x3;
-   private double y1;
-   private double y2;
-   private double y3;
+    private double x1;
+    private double x2;
+    private double x3;
+    private double y1;
+    private double y2;
+    private double y3;
 
     public Triangle(double x1, double y1, double x2, double y2, double x3, double y3) {
         this.x1 = x1;
@@ -66,8 +66,21 @@ public class Triangle implements Shape {
         return length(x1, y1, x2, y2) + length(x2, y2, x3, y3) + length(x3, y3, x1, y1);
     }
 
+
     @Override
-    public void print() {
-        System.out.println("Треугольник со сторонами "+getWidth()+" "+getHeight() + " площадью и переиметром "+getArea()+" "+getPerimeter());
+    public int hashCode() {
+        return (int)((x1+x2+x3+y1+y2+y3)/2)-100000;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Triangle)) return false;
+        Triangle t = (Triangle) o;
+        return (o == this) || (x1 == t.x2&&x2==t.x2&&x3==t.x3&&y1==t.y1&&y2==t.y2&&y3==t.y3);
+    }
+
+    @Override
+    public String toString() {
+        return ("Треугольник со сторонами " + getWidth() + " " + getHeight() + " площадью и переиметром " + getArea() + " " + getPerimeter());
     }
 }

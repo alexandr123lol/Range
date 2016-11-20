@@ -30,7 +30,19 @@ public class Square implements Shape {
     }
 
     @Override
-    public void print() {
-        System.out.println("Квадрат  со сторонами "+getWidth()+" "+getHeight() + " площадью и переиметром "+getArea()+" "+getPerimeter());
+    public int hashCode() {
+        return (int)(side);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Square)) return false;
+        Square s = (Square) o;
+        return (o == this) || (side == s.side);
+    }
+
+    @Override
+    public String toString() {
+        return ("Квадрат  со сторонами " + getWidth() + " " + getHeight() + " площадью и переиметром " + getArea() + " " + getPerimeter());
     }
 }

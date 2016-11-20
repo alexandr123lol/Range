@@ -2,17 +2,17 @@
  * Created by Alexander on 20.10.2016.
  */
 public class Rectangle implements Shape {
-    private double wight;
+    private double width;
     private double height;
 
-    public Rectangle(double wight, double height) {
-        this.wight = wight;
+    public Rectangle(double width, double height) {
+        this.width = width;
         this.height = height;
     }
 
     @Override
     public double getWidth() {
-        return wight;
+        return width;
     }
 
     @Override
@@ -22,15 +22,31 @@ public class Rectangle implements Shape {
 
     @Override
     public double getArea() {
-        return wight * height;
+        return width * height;
     }
 
     @Override
     public double getPerimeter() {
-        return (wight + height) * 2;
+        return (width + height) * 2;
     }
 
-    public void print() {
-        System.out.println("Четырехугольник со сторонами "+getWidth()+" "+getHeight() + " площадью и переиметром "+getArea()+" "+getPerimeter());
+
+    @Override
+    public int hashCode() {
+        return (int)(width*height)+1000000;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Rectangle)) return false;
+        Rectangle r = (Rectangle) o;
+        return (o == this) || (width == r.width&&height==r.height);
+    }
+
+
+    @Override
+    public String toString() {
+        return ("Четырехугольник со сторонами " + getWidth() + " " + getHeight() + " площадью и переиметром " + getArea() + " " + getPerimeter());
     }
 }
+

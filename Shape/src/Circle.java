@@ -30,7 +30,20 @@ public class Circle implements Shape {
     }
 
     @Override
-    public void print() {
-        System.out.println("Окружность  со сторонами "+getWidth()+" "+getHeight() + " площадью и переиметром "+getArea()+" "+getPerimeter());
+    public int hashCode() {
+        return (int) radius;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Circle)) return false;
+        Circle c = (Circle) o;
+        return (o == this) || (radius == c.radius);
+    }
+
+
+    @Override
+    public String toString() {
+        return ("Окружность  со сторонами " + getWidth() + " " + getHeight() + " площадью и переиметром " + getArea() + " " + getPerimeter());
     }
 }
