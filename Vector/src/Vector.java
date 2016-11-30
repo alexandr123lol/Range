@@ -31,7 +31,8 @@ public class Vector {
         if (length <= 0) {
             throw new IllegalArgumentException("Не корректная  длина, меньше  или равна нуля");
         }
-
+       final double[] array = Arrays.copyOf(arrayVector, arrayVector.length);
+         this.arrayVector = array;
 
     }
 
@@ -57,13 +58,14 @@ public class Vector {
         int length;
         if (arrayVector.length > vector.getSide()) {
             length = arrayVector.length;
+            vector = new Vector(length,vector.arrayVector);
         } else {
             length = vector.getSide();
-
+            arrayVector = Arrays.copyOf(arrayVector,length);
         }
 
         for (int i = 0; i < length; ++i) {
-            arrayVector[i] += vector.arrayVector[i] * vector.arrayVector[i] + arrayVector[i] * arrayVector[i];
+            arrayVector[i] = Math.sqrt(vector.arrayVector[i] * vector.arrayVector[i] + arrayVector[i] * arrayVector[i]);
         }
 
     }
@@ -72,8 +74,10 @@ public class Vector {
         int length;
         if (arrayVector.length > vector.getSide()) {
             length = arrayVector.length;
+            vector = new Vector(length,vector.arrayVector);
         } else {
             length = vector.getSide();
+            arrayVector = Arrays.copyOf(arrayVector,length);
         }
 
         for (int i = 0; i < length; ++i) {
