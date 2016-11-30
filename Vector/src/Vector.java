@@ -141,12 +141,14 @@ public class Vector {
         return (o == this) || (Arrays.equals(arrayVector, v.arrayVector));
     }
 
-    public static void sumVector(Vector v1, Vector v2) {
+    public static Vector sumVector(Vector v1, Vector v2) {
         v1.sumVectors(v2);
+        return v1;
     }
 
-    public static void differenceVector(Vector v1, Vector v2) {
+    public static Vector differenceVector(Vector v1, Vector v2) {
         v1.subtractionVectors(v2);
+        return v1;
     }
 
     public static double scalarProducteVector(Vector v1, Vector v2) {
